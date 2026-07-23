@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NoteGuide Day 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Day 1 prototype</p>
+          <h1>Build the editor first.</h1>
+          <p class="lede">
+            One math line at a time. Press Enter to check the current step. The verifier is mocked for now so
+            you can design the flow before plugging in SymPy.
+          </p>
+        </div>
+
+        <aside class="status-card">
+          <div class="status-card__label">Project state</div>
+          <div id="projectState" class="status-card__value">Editor shell active</div>
+          <div class="status-card__hint">Mock verifier, inline annotations, and step creation are all local.</div>
+        </aside>
+      </section>
+
+      <section class="workspace">
+        <div class="workspace__topbar">
+          <div>
+            <p class="workspace__eyebrow">Note workspace</p>
+            <h2>Algebra steps</h2>
+          </div>
+          <div class="workspace__actions">
+            <button id="addStepBtn" class="button button--secondary" type="button">Add step</button>
+            <button id="loadSamplesBtn" class="button button--primary" type="button">Load samples</button>
+          </div>
+        </div>
+
+        <div class="legend">
+          <span class="legend__item"><span class="dot dot--correct"></span> Correct</span>
+          <span class="legend__item"><span class="dot dot--incorrect"></span> Incorrect</span>
+          <span class="legend__item"><span class="dot dot--uncertain"></span> Uncertain</span>
+        </div>
+
+        <div id="stepsList" class="steps-list"></div>
+      </section>
+    </main>
+
+    <template id="stepTemplate">
+      <article class="step-card">
+        <div class="step-card__top">
+          <div class="step-number">1.</div>
+          <div class="step-editor" contenteditable="true" spellcheck="false" data-placeholder="Write a math step and press Enter"></div>
+          <div class="step-badge">Idle</div>
+        </div>
+        <div class="step-card__meta">
+          <span class="step-card__source">Mock verifier</span>
+          <span class="step-card__confidence">Waiting for input</span>
+        </div>
+        <div class="step-annotation step-annotation--muted">Type a step to start verifying.</div>
+      </article>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
